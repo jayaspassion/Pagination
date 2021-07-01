@@ -62,9 +62,25 @@ function createPagination() {
     <a class="previousPage" onclick="currentPage(${pageNumber- 1})">«</a>
         `;
   paginationList.append(page);
-  for (let i = 0; i <= numberOfPages; i++) {
+
+//   for (let i = 0; i <= numberOfPages; i++) {
+//     page = document.createElement("li"); 
+//     if((i+1) === pageNumber){
+//         page.innerHTML = `
+//         <a class="active" id="page${i + 1}" onclick="currentPage(${i + 1})">${i + 1}</a>
+//     `; 
+//     }
+//     else{
+//         page.innerHTML = `
+//             <a id="page${i + 1}" onclick="currentPage(${i + 1})">${i + 1}</a>
+//         `;
+//     }
+//     paginationList.append(page);
+//   }
+
+for (let i = pageNumber-3; i <= pageNumber+2; i++) {
+    if(i>=0 && i<=numberOfPages){
     page = document.createElement("li");
-    
     if((i+1) === pageNumber){
         page.innerHTML = `
         <a class="active" id="page${i + 1}" onclick="currentPage(${i + 1})">${i + 1}</a>
@@ -76,7 +92,13 @@ function createPagination() {
         `;
     }
     paginationList.append(page);
+    }
   }
+
+
+
+
+
 
   page.innerHTML = `
     <a class="nextPage" onclick="currentPage(${pageNumber+ 1})">»</a>
